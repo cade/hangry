@@ -82,6 +82,7 @@ module Hangry
     def parse_published_date
       content = node_with_itemprop(:datePublished)['content']
       content.blank? ? nil : Date.parse(content)
+    rescue ArgumentError
     end
     def parse_time(type)
       node = node_with_itemprop(type)

@@ -30,6 +30,7 @@ module Hangry
     def parse_published_date
       content = node_with_itemprop(:published).content
       content.blank? ? nil : Date.parse(content)
+    rescue ArgumentError
     end
 
     def parse_yield
